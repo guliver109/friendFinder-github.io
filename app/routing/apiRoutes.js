@@ -1,5 +1,5 @@
 //link to array that holds friends data
-var friends = require("/data/friends.js");
+var friends = require('./../data/friends');
 
 //contain two routes
 module.exports = function (app) {
@@ -18,49 +18,49 @@ module.exports = function (app) {
             //console.log(newFriend);
             
             //saving users imput for compare
-            var match = [];
+            var bestMatch;
             
             // for sorting input and match for results
-            for (let i = 0; i < newFriend.score.length; i++) {
-                if (newFriend.score[i] == "1 (Not so Perfrect Match)") {
-                    newFriend.score[i] = 1;
-                } else if (newFriend.score[i] == "5 (You are Perfrect Match)") {
-                    newFriend.score[i] = 5;
+            for (var i = 0; i < newFriend.scores.length; i++) {
+                if (newFriend.scores[i] == "1 (Not so Perfrect Match)") {
+                    newFriend.scores[i] = 1;
+                } else if (newFriend.scores[i] == "5 (You are Perfrect Match)") {
+                    newFriend.scores[i] = 5;
                 } else {
-                    newFriend.score[i] = parseInt(newFriend.score[i]);
+                    newFriend.scores[i] = parseInt(newFriend.scores[i]);
                 }
             }
 
             //to compare scores with rest of the friends from array
-            var perfectMatch = 0;
+            var bestMatchIndex = 0;
 
             //difference variable
             //(biggest diference from 1-5 is 4 multiplied with 10 questions)
-            var matchDifference = 40;
+            var bestMatchDifference = 40;
 
             //nested loop for comparing friends from array
-            for (let i = 0; i < friends[i].length; i++) {
+            for (var i = 0; i < friends.length; i++) {
                 
                 //setting difference variable
-                var difference = 0;
+                var totalDifference = 0;
 
-                for (let y = 0; y < friends[i].score.length; y++){
-                    var diffScore = Math.abs(friends[i].score[y] - newFriend.score[y]);
-                    difference += diffScore;
+                for (var index = 0; index < friends[i].scores.length; index++){
+                    var differenceOneScore = Math.abs(friends[i].scores[index] - newFriend.scores[index]);
+                    totalDifference += differenceOneScore;
                 }
                 //if les than the best match save difference and index
-                if (difference < matchDifference) {
-                    perfectMatch = i;
-                    matchDifference = difference;
+                if (totalDifference < bestMatchDifference) {
+                    bestMatchIndex = i;
+                    bestMatchDifference = totalDifference;
                 }
             }
             //best match data from friend
-            match = friends[perfectMatch];
+            bestMatch = friends[bestMatchIndex];
             
             //new friend in array of friends
             friends.push(newFriend);
             
             //return perfect match
-            res.json(match);
+            res.json(bestMatch);
     });
 }

@@ -4,18 +4,21 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 //data base
-var friends = require("./app/data/friends.js");
+var friends = require('./app/data/friends');
+//console.log(friends);
 
 //setup for express
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3030;
 
 //in the public folder available
-app.use(express.static('app/public'));
+app.use(express.static('./app/public'));
 
 //express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 //routes
 require("./app/routing/apiRoutes.js")(app);
