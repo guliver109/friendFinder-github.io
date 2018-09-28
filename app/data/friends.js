@@ -1,12 +1,12 @@
 var friends = [
     {
      name: "Ahmed",
-     photo: "http://www.mens-hairstylists.com/wp-content/uploads/2015/10/stylish-haircuts-for-men.jpg",
+     photo: "https://vignette3.wikia.nocookie.net/itsalwayssunny/images/0/0a/Charlie_%289%29.jpg",
      scores: [5,4,2,5,1,1,2,1,3,5]
 },
 {
     name: "Sherri",
-     photo: "http://science-all.com/images/wallpapers/girl-pictures/girl-pictures-23.jpg",
+     photo: "https://static.pexels.com/photos/388517/pexels-photo-388517.jpeg",
      scores: [3,4,2,4,4,1,1,2,3,4]
 },
 {
@@ -21,7 +21,7 @@ var friends = [
 },
 {
     name: "Betsy",
-    photo: "http://cdn3.thr.com/sites/default/files/2013/02/emma_roberts.jpg",
+    photo: "https://static.pexels.com/photos/206481/pexels-photo-206481.jpeg",
     scores: [4,1,5,3,4,5,2,3,4,5]
 },
 {
@@ -30,8 +30,8 @@ var friends = [
     scores: [3,4,2,4,4,1,1,2,3,4]
 },
 {
-    name: "Jody",
-    photo: "http://kelseyedwardsphoto.com/images/gallery/Sports/74_088_FAVS_MAY_0511.jpg",
+    name: "Jonny",
+    photo: "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
     scores: [5,4,2,5,1,1,2,1,3,5]
 }
 ];
